@@ -22,6 +22,7 @@ dataclasses-json==0.6.7
 Deprecated==1.2.18
 distro==1.9.0
 durationpy==0.9
+fitz
 fastapi==0.115.11
 filelock==3.17.0
 filetype==1.2.0
