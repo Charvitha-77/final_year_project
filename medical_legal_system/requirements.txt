@@ -1,11 +1,33 @@
+# Core dependencies
 streamlit
 pandas
+numpy
+tqdm
+python-dotenv
+
+# PDF to CSV conversion
+pdf2image
+pytesseract
+pymupdf
+poppler-utils  # Required for pdf2image (Linux/Mac users only)
+
+# LangChain & Google AI
 langchain
 langchain_community
+langchain_google_genai
+google.generativeai
+google-ai-generativelanguage>=0.6.16,<0.7.0  # Ensure correct version
 chromadb
-tiktoken
+
+# Embeddings & Vector Store
+sentence-transformers
+faiss-cpu  # For vector search
+tiktoken  # Tokenizer for OpenAI models
+
+# Additional utilities
+pillow  # Image processing for PDFs
+fastapi  # If using an API
+uvicorn  # ASGI server for FastAPI
+
+# If you need to run OpenAI models
 openai
-pymupdf
-tesseract
-pytesseract
-numpy
