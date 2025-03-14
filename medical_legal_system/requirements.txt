@@ -9,7 +9,6 @@ python-dotenv
 pdf2image
 pytesseract
 pymupdf
-poppler-utils  # Required for pdf2image (Linux/Mac users only)
 
 # LangChain & Google AI
 langchain
