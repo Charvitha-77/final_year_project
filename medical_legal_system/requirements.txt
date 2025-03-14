@@ -8,7 +8,8 @@ python-dotenv
 # PDF to CSV conversion
 pdf2image
 pytesseract
-pymupdf
+pymupdf==1.22.5  # Use a specific stable version
+
 
 # LangChain & Google AI
 langchain
