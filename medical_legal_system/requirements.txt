@@ -8,26 +8,25 @@ python-dotenv
 # PDF to CSV conversion
 pdf2image
 pytesseract
-pymupdf==1.22.5  # Use a specific stable version
-
+pymupdf==1.22.5  # Fix for fitz module
 
 # LangChain & Google AI
 langchain
 langchain_community
 langchain_google_genai
 google.generativeai
-google-ai-generativelanguage>=0.6.16,<0.7.0  # Ensure correct version
+google-ai-generativelanguage>=0.6.16,<0.7.0
 chromadb
 
 # Embeddings & Vector Store
 sentence-transformers
-faiss-cpu  # For vector search
-tiktoken  # Tokenizer for OpenAI models
+faiss-cpu
+tiktoken
 
 # Additional utilities
-pillow  # Image processing for PDFs
-fastapi  # If using an API
-uvicorn  # ASGI server for FastAPI
+pillow
+fastapi
+uvicorn
 
-# If you need to run OpenAI models
+# OpenAI model support
 openai
