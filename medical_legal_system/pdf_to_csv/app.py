@@ -1,5 +1,5 @@
 import streamlit as st
-import fitz  # PyMuPDF
+from PyMuPDF import fitz  # PyMuPDF
 import pdf2image
 import pytesseract
 import pandas as pd
