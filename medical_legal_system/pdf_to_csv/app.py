@@ -11,7 +11,7 @@ from io import BytesIO
 CSV_FILE_PATH = "C:/Users/Charvitha Reddy/Downloads/corrected_project/medical_legal_system/storage/medical_legal_records.csv"
 
 
-pytesseract.pytesseract.tesseract_cmd = r"C:/Users/Charvitha Reddy/Downloads/medical_legal/medical_legal_system/tesseract-ocr-w64-setup-5.5.0.20241111 (1).exe"
+pytesseract.pytesseract.tesseract_cmd = r"medical_legal_system/tesseract-ocr-w64-setup-5.5.0.20241111 (1).exe"
 
 # Streamlit Page Configuration
 st.set_page_config(page_title="Medico-Legal Document Conversion", page_icon="⚖", layout="wide")
