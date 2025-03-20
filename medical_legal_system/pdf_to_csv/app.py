@@ -1,4 +1,5 @@
 import streamlit as st
+!pip install PyPDF2
 import PyPDF2  # For PDF text extraction
 import pdf2image  # Convert scanned PDFs to images
 import pytesseract  # OCR for extracting text from images
