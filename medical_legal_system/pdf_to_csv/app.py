@@ -8,8 +8,7 @@ import os
 from io import BytesIO
 
 
-CSV_FILE_PATH = "C:/Users/Charvitha Reddy/Downloads/corrected_project/medical_legal_system/storage/medical_legal_records.csv"
-
+CSV_FILE_PATH = "medical_legal_system/storage/medical_legal_records.csv"
 
 pytesseract.pytesseract.tesseract_cmd = r"medical_legal_system/tesseract-ocr-w64-setup-5.5.0.20241111 (1).exe"
 
