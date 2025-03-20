@@ -4,7 +4,7 @@ import pandas as pd
 from langchain_community.document_loaders import CSVLoader
 from utils import get_model_response
 
-DATA_STORAGE_PATH = "C:/Users/Charvitha Reddy/Downloads/corrected_project/medical_legal_system/storage/medical_legal_records.csv"
+DATA_STORAGE_PATH = "medical_legal_system/storage/medical_legal_records.csv"
 
 def load_csv_data():
     
