@@ -1,43 +1,40 @@
 import streamlit as st
-!pip install PyPDF2
-import PyPDF2  # For PDF text extraction
-import pdf2image  # Convert scanned PDFs to images
-import pytesseract  # OCR for extracting text from images
+import fitz  # PyMuPDF
+import pdf2image
+import pytesseract
 import pandas as pd
 import re
 import os
+from io import BytesIO
 
-# Define CSV File Path
-CSV_FILE_PATH = "medical_legal_system/storage/medical_legal_records.csv"
 
-# Configure Tesseract OCR (Set the correct path)
-pytesseract.pytesseract.tesseract_cmd = r"medical_legal_system/tesseract-ocr-w64-setup-5.5.0.20241111 (1).exe"
+CSV_FILE_PATH = "C:/Users/Charvitha Reddy/Downloads/corrected_project/medical_legal_system/storage/medical_legal_records.csv"
 
-# Streamlit Page Configuration
+
+pytesseract.pytesseract.tesseract_cmd = r"C:/Users/Charvitha Reddy/Downloads/medical_legal/medical_legal_system/tesseract-ocr-w64-setup-5.5.0.20241111 (1).exe"
+
+
 st.set_page_config(page_title="Medico-Legal Document Conversion", page_icon="⚖", layout="wide")
 
-# Sidebar UI
+
 st.sidebar.title("📑 Medico-Legal document conversion")
 st.sidebar.info("Upload and manage medico-legal records with AI-powered processing.")
 uploaded_file = st.sidebar.file_uploader("📤 Upload a Medico-Legal PDF", type=["pdf"])
 
-# Title and Description
+
 st.markdown("""
-    <h1 style='text-align: center; color: #2E86C1;'>Medico-Legal Document Management System</h1>
+    <h1 style='text-align: center; color: #2E86C1;'>Medico-Legal Document Management System </h1>
     <p style='text-align: center; color: #5D6D7E;'>Easily extract, store, and manage medico-legal records in a structured format.</p>
 """, unsafe_allow_html=True)
 
-# Function to extract text from a normal (non-scanned) PDF using PyPDF2
 def extract_text_from_pdf(pdf_file):
     text = ""
-    pdf_reader = PyPDF2.PdfReader(pdf_file)
-    for page in pdf_reader.pages:
-        extracted_text = page.extract_text()
-        if extracted_text:
-            text += extracted_text + "\n"
+    with fitz.open(stream=pdf_file.read()) as doc:
+        for page in doc:
+            text += page.get_text("text") + "\n"
     return text.strip()
 
-# Function to extract text from scanned PDFs using OCR
+
 def extract_text_from_scanned_pdf(pdf_file):
     images = pdf2image.convert_from_bytes(pdf_file.read())
     text = ""
@@ -45,7 +42,7 @@ def extract_text_from_scanned_pdf(pdf_file):
         text += pytesseract.image_to_string(img) + "\n"
     return text.strip()
 
-# Function to parse medico-legal text into structured format
+
 def parse_medico_legal_text(text):
     attributes = [
         "Case ID", "Patient Name", "Age", "Gender", "Case Description",
@@ -84,15 +81,19 @@ if uploaded_file:
         df = parse_medico_legal_text(text)
         if not df.empty:
             final_df = append_to_csv(df, CSV_FILE_PATH)
-            st.success("✅ Data successfully extracted and added to the CSV file!")
-
-            st.markdown("<h3 style='color: #1ABC9C;'>Extracted Details</h3>", unsafe_allow_html=True)
+            st.success(" Data successfully extracted and added to the CSV file!")
+            
+            st.markdown("""
+                <h3 style='color: #1ABC9C;'> Extracted Details</h3>
+            """, unsafe_allow_html=True)
             for index, row in df.iterrows():
                 st.json(row.to_dict())
-
-            st.markdown("<h3 style='color: #F39C12;'>📂 Updated Medico-Legal Records</h3>", unsafe_allow_html=True)
+                
+            st.markdown("""
+                <h3 style='color: #F39C12;'>📂 Updated Medico-Legal Records</h3>
+            """, unsafe_allow_html=True)
             st.dataframe(final_df, use_container_width=True)
         else:
-            st.error("❌ Unable to extract structured information from the document.")
+            st.error(" Unable to extract structured information from the document.")
     else:
-        st.error("❌ Unable to extract text. Please check the PDF format.")
+        st.error(" Unable to extract text. Please check the PDF format.")
