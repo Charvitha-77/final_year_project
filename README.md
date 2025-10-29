@@ -6,17 +6,17 @@ It minimizes search time, reduces manual effort, and ensures secure, structured,
 
 ⚙️ Key Features
 
-🧾 Automated Data Extraction: Extracts data from PDF/CSV medico-legal records using OCR (Tesseract).
+  🧾 Automated Data Extraction: Extracts data from PDF/CSV medico-legal records using OCR (Tesseract).
 
-🧠 AI-Powered Querying: Allows users to ask natural language questions using the MedGemini model via LangChain.
+  🧠 AI-Powered Querying: Allows users to ask natural language questions using the MedGemini model via LangChain.
 
-📊 ChromaDB Integration: Stores and searches document embeddings for quick retrieval.
+  📊 ChromaDB Integration: Stores and searches document embeddings for quick retrieval.
 
-💬 Interactive Chat Interface: Built with Streamlit for easy user interaction.
+  💬 Interactive Chat Interface: Built with Streamlit for easy user interaction.
 
-🔍 Data Validation: Detects missing, duplicate, or inconsistent fields automatically.
+  🔍 Data Validation: Detects missing, duplicate, or inconsistent fields automatically.
 
-🧱 Secure Data Management: Ensures structured access and protection of sensitive medico-legal information.
+  🧱 Secure Data Management: Ensures structured access and protection of sensitive medico-legal information.
 
 🧰 Tech Stack
 Component	Technology Used
